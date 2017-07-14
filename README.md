@@ -2,10 +2,12 @@
 
 基于`Twitter-Snowflake`算法和`Zookeeper临时节点`特性实现的《分布式ID生成器》（`64bit自增ID`）
 
-# 2. `Twitter-Snowflake`算法
+# 2. Twitter-Snowflake
 
 ![snowflake.png](http://ot3awkto3.bkt.clouddn.com/snowflake.png)
+
 [snowflake.png](http://ot3awkto3.bkt.clouddn.com/snowflake.png)
+
 第1个bit固定为0, 时间戳、工作机器ID、系列号占用的bit位数是可变的，依据具体的业务而定
 
 ## 2.1 时间戳
