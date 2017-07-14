@@ -1,6 +1,7 @@
 package me.zhongmingmao.zk;
 
 import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.apachecommons.CommonsLog;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
@@ -63,17 +64,14 @@ public class ZkManager implements Closeable {
      * ZK连接字符串
      */
     @Getter
-    @Value("${zookeeper.connectAndInit.string}")
+    @Setter
+    @Value("${zookeeper.connect.string}")
     private String connectString = DEFAULT_CONNECT_STRING;
     
     /**
      * Curator客户端
      */
     private CuratorFramework client;
-    
-    public ZkManager(String connectString) {
-        this.connectString = connectString;
-    }
     
     /**
      * 创建Zookeeper连接

@@ -212,7 +212,8 @@ public class ZKSnowflakeIDGenerator extends AbstractSnowflakeIDGenerator {
     @Override
     @PreDestroy
     public void close() throws IOException {
-        this.isWorking = false;
+        log.info("close zkManager before shutdown...");
+        suspend();
         CloseableUtils.closeQuietly(zkManager);
     }
     

@@ -1,0 +1,3 @@
+zookeeper:
+  connect:
+    string: localhost:2182

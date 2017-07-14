@@ -2,6 +2,9 @@ package me.zhongmingmao.Id.generator;
 
 import java.util.Random;
 
+/**
+ * Twitter-Snowflake算法的抽象类，保存基本参数
+ */
 public abstract class AbstractSnowflakeIDGenerator implements IDGenerator {
     
     /**

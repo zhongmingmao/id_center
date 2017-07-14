@@ -11,5 +11,6 @@
 
     <modules>
         <module>id-core</module>
+        <module>id-client</module>
     </modules>
 </project>

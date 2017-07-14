@@ -3,7 +3,7 @@ package me.zhongmingmao.Id.generator1;
 import me.zhongmingmao.Id.generator.ZKSnowflakeIDGenerator;
 import me.zhongmingmao.zk.ZkManager;
 import org.apache.curator.test.TestingServer;
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.time.Duration;
@@ -22,10 +22,9 @@ public class ZKSnowflakeIDGeneratorTests {
     public volatile boolean beSet = false;
     public volatile LocalDateTime startTime = null;
     
-    @Before
-    public void setUp() throws Exception {
+    @BeforeClass
+    public static void setUp() throws Exception {
         new TestingServer(Zk_CLIENT_PORT);
-        
     }
     
     @Test
@@ -39,7 +38,8 @@ public class ZKSnowflakeIDGeneratorTests {
         IntStream.range(0, threadCount).forEach(value -> {
             pool.submit(() -> {
                 try {
-                    ZkManager zkManager = new ZkManager(CONNECT_STRING);
+                    ZkManager zkManager = new ZkManager();
+                    zkManager.setConnectString(CONNECT_STRING);
                     zkManager.connect();
                     ZKSnowflakeIDGenerator idGenerator = new ZKSnowflakeIDGenerator(zkManager);
                     idGenerator.init();
