@@ -221,16 +221,14 @@ public class ZKSnowflakeIDGenerator extends AbstractSnowflakeIDGenerator {
      * 重新与Zookeeper建立连接，由ZK连接状态监听器触发
      */
     public void reconnect() {
-        while (true) {
-            if (isWorking) {
-                return;
-            }
-            try {
-                zkManager.connect();
-                return;
-            } catch (Exception e) {
-                log.error("reconnect fail!!", e);
-            }
+        log.info("try to reconnect...");
+        if (isWorking) {
+            return;
+        }
+        try {
+            zkManager.connect();
+        } catch (Exception e) {
+            log.error("reconnect fail!!", e);
         }
     }
 }

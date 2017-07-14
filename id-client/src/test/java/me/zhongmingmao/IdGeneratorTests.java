@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @CommonsLog
 public class IdGeneratorTests {
     
-    public static final int Zk_CLIENT_PORT = 2182;
+    private static final int Zk_CLIENT_PORT = 2182;
     
     @Autowired
     private ZKSnowflakeIDGenerator idGenerator;
