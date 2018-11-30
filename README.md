@@ -4,9 +4,7 @@
 
 # 2. Twitter-Snowflake
 
-![snowflake.png](http://ot3awkto3.bkt.clouddn.com/snowflake.png)
-
-[snowflake.png](http://ot3awkto3.bkt.clouddn.com/snowflake.png)
+![snowflake.png](https://id-center-1253868755.cos.ap-guangzhou.myqcloud.com/snowflake.png)
 
 第1个bit固定为0，时间戳、工作机器ID、序列号占用的bit位数是可变的，依据具体的业务而定
 
@@ -41,9 +39,7 @@ $ mvn clean test
 4. 单机房机器数量：100，`100 ~ 7 bit`
 5. QPS：20W，`20W/1000=200 ~ 8 bit`
 
-![id_center.png](http://ot3awkto3.bkt.clouddn.com/id_center.png)
-
-[id_center.png](http://ot3awkto3.bkt.clouddn.com/id_center.png)
+![id_center.png](https://id-center-1253868755.cos.ap-guangzhou.myqcloud.com/id_center.png)
 
 # 6. 存在的问题
 1. 强依赖于机器时钟，优化措施：周期性记录机器最新时钟，开始工作前先通过最相关判断（`current>=least && (current-sum(least)/(n-1)) < M`）
